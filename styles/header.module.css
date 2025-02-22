@@ -6,9 +6,10 @@
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 50;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.container {
+.div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,9 +18,10 @@
   padding: 16px;
 }
 
-.title {
+.h1 {
   font-size: 24px;
   font-weight: bold;
+  transition: color 0.3s;
 }
 
 .nav {
@@ -33,4 +35,23 @@
 
 .link:hover {
   color: gray;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-color: #121212;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+
+  .h1 {
+    color: white;
+  }
+
+  .link {
+    color: white;
+  }
+
+  .link:hover {
+    color: lightgray;
+  }
 }

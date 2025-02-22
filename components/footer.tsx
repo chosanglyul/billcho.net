@@ -1,4 +1,6 @@
 import Link from 'next/link';
+
+import styles from '@/styles/footer.module.css';
 import profileData from '@/public/profile.json';
 
 const Footer: React.FC = () => {
@@ -6,12 +8,12 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 bg-black">
-      <div className="flex justify-center items-center py-1 space-x-1 text-sm text-white">
+    <footer className={styles.footer}>
+      <div className={styles.div}>
         <span>© {currentYear} {name}. All Rights Reserved. Powered by</span>
-        <Link href="https://nextjs.org" className="hover:text-gray-300 ml-1">Next.js</Link>
+        <Link href="https://nextjs.org" className={styles.link}>Next.js</Link>
       </div>
-    </footer>
+     </footer>
   );
 };
 

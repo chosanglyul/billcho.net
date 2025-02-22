@@ -181,3 +181,46 @@
   0% { transform: translateY(0.5rem) translateX(-50%); opacity: 0; }
   100% { transform: translateY(0) translateX(-50%); opacity: 1; }
 }
+
+@media (prefers-color-scheme: dark) {
+  .bar {
+    background-color: white;
+  }
+
+  .arrow {
+    background-color: white;
+  }
+
+  .lRect::after {
+    border-right: 20px solid white;
+  }
+
+  .rRect::after {
+    border-left: 20px solid white;
+  }
+
+  .button {
+    background-color: #eee;
+    color: black;
+  }
+
+  .button:hover {
+    background-color: #ccc;
+  }
+
+  .button:focus {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+
+  .button:active {
+    background-color: #bbb;
+  }
+
+  .abstract {
+    color: #bbb;
+  }
+
+  .arrowTitleText {
+    color: white;
+  }
+}

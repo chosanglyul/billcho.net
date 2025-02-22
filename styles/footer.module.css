@@ -1,0 +1,40 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+.link:hover {
+  color: #d1d5db;
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background-color: #f8f9fa;
+    color: #333;
+  }
+
+  .div {
+    color: #333; /* Dark mode text color */
+  }
+
+  .link:hover {
+    color: #aaa; /* Dark mode hover color */
+  }
+}

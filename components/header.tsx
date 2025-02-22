@@ -13,8 +13,8 @@ const Header: React.FC = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.container}>
-        <h1 className={styles.title}><Link href="/">{name}</Link></h1>
+      <div className={styles.div}>
+        <h1 className={styles.h1}><Link href="/">{name}</Link></h1>
         <nav className={styles.nav}>
           <Link href="/about" className={styles.link}>About</Link>
           <Link href="/publications" className={styles.link}>Publications</Link>
