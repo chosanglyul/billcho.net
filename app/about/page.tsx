@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { AiOutlineUser } from 'react-icons/ai';
 import { SiGooglescholar } from "react-icons/si";
 import { IoLocationSharp, IoMailSharp } from "react-icons/io5";
 import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload, FaGraduationCap } from "react-icons/fa";
-import { AiOutlineUser } from 'react-icons/ai'
 
 import profileData from '@/public/profile.json';
 

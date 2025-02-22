@@ -20,7 +20,7 @@ const Main: React.FC = () => {
         <div className={styles.textContainer}>
           <h1 className={styles.title}>{name}</h1>
           <p className={styles.about}>{about}</p>
-          <p className={styles.abstract}>{abstract}</p>
+          <p className={`desktop-only ${styles.abstract}`}>{abstract}</p>
           <div className={styles.buttonContainer}>
             <Link href="/about">
               <button className={styles.button}>

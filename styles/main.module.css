@@ -154,8 +154,8 @@
   opacity: 0;
   animation-delay: 2s;
   margin-bottom: 1rem;
+  text-align: center;
 }
-
 
 @keyframes drop-bar {
   0% { bottom: 100%; }
@@ -222,5 +222,11 @@
 
   .arrowTitleText {
     color: white;
+  }
+}
+
+@media (max-width: 600px) {
+  .arrowTitleText {
+    font-size: 1rem;
   }
 }

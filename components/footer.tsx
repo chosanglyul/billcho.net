@@ -10,8 +10,9 @@ const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.div}>
-        <span>© {currentYear} {name}. All Rights Reserved. Powered by</span>
-        <Link href="https://nextjs.org" className={styles.link}>Next.js</Link>
+        <span>© {currentYear} {name}. All Rights Reserved.</span>
+        <span className='desktop-only'>Powered by</span>
+        <Link href="https://nextjs.org" className={`desktop-only ${styles.link}`}>Next.js</Link>
       </div>
      </footer>
   );
