@@ -46,12 +46,14 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <div className={styles.div}>
         <h1 className={styles.h1}><Link href="/">{name}</Link></h1>
+
         <div className='desktop-only'>
           <nav className={styles.nav}>
             <Link href="/about" className={styles.link}>About</Link>
             <Link href="/publications" className={styles.link}>Publications</Link>
           </nav>
         </div>
+
         <div className='mobile-only'>
           <nav className={styles.nav}>
             <div
