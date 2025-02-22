@@ -1,8 +1,10 @@
-import "./globals.css";
+import "@/styles/globals.css";
 import type { Metadata } from 'next';
-import profileData from '@/public/profile.json';
+import { headers } from 'next/headers';
+
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import profileData from '@/public/profile.json';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,10 +12,8 @@ interface LayoutProps {
 
 export const metadata: Metadata = {
   title: profileData.name,
-  description: profileData.description,
-  icons: {
-    icon: profileData.favicon,
-  },
+  description: "Homepage of SangLyul Cho",
+  icons: { icon: 'favicon.ico', },
 };
 
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {

@@ -2,22 +2,22 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+
+import styles from '@/styles/header.module.css';
 import profileData from '@/public/profile.json';
+
+const name = profileData.name;
 
 const Header: React.FC = () => {
   if (usePathname() === '/') { return null; }
 
-  const name = profileData.name;
-
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-      <div className="flex justify-between items-center max-w-4xl mx-auto p-4">
-        <h1 className="text-2xl font-bold">
-          <Link href="/">{name}</Link>
-        </h1>
-        <nav className="space-x-4">
-          <Link href="/about" className="hover:text-gray-600">About</Link>
-          <Link href="/publications" className="hover:text-gray-600">Publications</Link>
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <h1 className={styles.title}><Link href="/">{name}</Link></h1>
+        <nav className={styles.nav}>
+          <Link href="/about" className={styles.link}>About</Link>
+          <Link href="/publications" className={styles.link}>Publications</Link>
         </nav>
       </div>
     </header>
