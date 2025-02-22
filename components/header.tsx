@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect, useRef } from 'react';
 
@@ -28,9 +27,11 @@ const Header: React.FC = () => {
       } else {
         setIsActive(false);
       }
-      /* else if (!dropdownRef.current?.contains(event.target as Node)) {
+      /* TODO else if (!dropdownRef.current?.contains(event.target as Node)) {
         setIsActive(false);
       }*/
+      // TODO mobile dark mode dropdown link clicked color
+      // TODO dropdown show and hide animation
     };
 
     document.addEventListener('click', handleClick);
