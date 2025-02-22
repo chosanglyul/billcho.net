@@ -29,7 +29,7 @@ export default function Home() {
   };
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-6">
+    <main className="max-w-4xl mx-auto px-4 py-24">
       <h1 className="text-3xl font-bold mb-6">Publications</h1>
 
       {publications.map((pub) => (

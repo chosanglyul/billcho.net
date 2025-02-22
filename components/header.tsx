@@ -1,7 +1,12 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import profileData from '@/public/profile.json';
 
 const Header: React.FC = () => {
+  if (usePathname() === '/') { return null; }
+
   const name = profileData.name;
 
   return (

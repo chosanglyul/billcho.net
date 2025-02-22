@@ -8,12 +8,20 @@ import { AiOutlineUser } from 'react-icons/ai'
 
 import profileData from '@/public/profile.json';
 
+interface Education {
+  degree: string;
+  school: string;
+  duration: string;
+  gpa?: string;
+};
+
 const name: string = profileData.name;
 const email: string = profileData.email;
+const education: Education[] = profileData.education.reverse();
 
 export default function Home() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-6">
+    <main className="max-w-4xl mx-auto px-4 py-24">
       <h1 className="text-3xl font-bold mb-6">About</h1>
 
       <div className="flex items-center justify-between mb-8 space-x-6">
@@ -33,7 +41,7 @@ export default function Home() {
               <a href={`mailto:${email}`} className="text-blue-500 hover:underline">{email}</a>
             </p>
 
-            {profileData.education.map((edu, index) => (
+            {education.map((edu, index) => (
               <div key={index} className="flex items-center space-x-2">
                 <FaGraduationCap className="text-gray-700" />
                 <div className="w-1/2 text-left">
