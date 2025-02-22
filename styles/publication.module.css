@@ -1,0 +1,15 @@
+.main {
+  max-width: 56rem;
+  margin: auto;
+  padding: 6rem 1rem;
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}

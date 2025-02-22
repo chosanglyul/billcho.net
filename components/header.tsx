@@ -46,18 +46,22 @@ const Header: React.FC = () => {
       <div className={styles.div}>
         <h1 className={styles.h1}><Link href="/">{name}</Link></h1>
         <div className='desktop-only'>
-          <nav className={`${styles.nav}`}>
+          <nav className={styles.nav}>
             <Link href="/about" className={styles.link}>About</Link>
             <Link href="/publications" className={styles.link}>Publications</Link>
           </nav>
         </div>
         <div className='mobile-only'>
-          <nav className={`${styles.nav}`}>
+          <nav className={styles.nav}>
             <div
               ref={buttonRef}
               className={`${(isActive ? styles.dropdownButtonActive : styles.dropdownButton)}`}
             >
-              <Image src="/hamburger.svg" alt="Menu" className={styles.image} width="40" height="30" />
+              <svg width="30" height="20" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                <rect y="0" width="30" height="2" rx="1"/>
+                <rect y="9" width="30" height="2" rx="1"/>
+                <rect y="18" width="30" height="2" rx="1"/>
+              </svg>
             </div>
             <div
               ref={dropdownRef}

@@ -19,7 +19,7 @@
 }
 
 .h1 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   transition: color 0.3s;
 }
@@ -62,6 +62,14 @@
     color: lightgray;
   }
 
+  .dropdownButton {
+    fill: white;
+  }
+
+  .dropdownButtonActive {
+    fill: white;
+  }
+
   .dropdownContentActive {
     background-color: #121212;
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
@@ -70,10 +78,10 @@
 
 @media (max-width: 600px) {
   .link {
-    padding: 12px 20px;
+    padding: 0.75rem 1.25rem;
     display: block;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .link:hover {
