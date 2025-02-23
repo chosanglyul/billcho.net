@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
 
         <span className='desktop-only'>
           Powered by {' '}
-          <Link href='https://nextjs.org' className={styles.link}>Next.js</Link>
+          <Link href='https://nextjs.org' className={styles.link} target='_blank' rel='noopener noreferrer'>Next.js</Link>
         </span>
       </div>
      </footer>

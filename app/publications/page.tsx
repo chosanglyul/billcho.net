@@ -1,6 +1,7 @@
 import profileData from '@/public/profile.json';
+import Publication from '@/components/publication';
+import { PublicationData } from '@/interfaces/types';
 import styles from '@/styles/publication.module.css';
-import Publication, { PublicationData } from '@/components/publication';
 
 const publications: PublicationData[] = profileData.publications.reverse();
 

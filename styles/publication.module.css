@@ -13,3 +13,149 @@
   font-weight: bold;
   transition: color 0.3s;
 }
+
+/* Container for the entire publication card */
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem; /* 6px padding */
+  border: 1px solid #e2e8f0; /* Light border */
+  border-radius: 0.375rem; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow */
+  background-color: white; /* Background */
+  gap: 0.5rem;
+}
+
+.h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.authors {
+  color: #4b5563;
+}
+
+.journal {
+  color: #4b5563;
+}
+
+.highlight {
+  color: #ff4500;
+  font-weight: 600;
+}
+
+.button {
+  fill: none;
+  stroke: black;
+  stroke-width: 5;
+  stroke-linecap: round;
+  margin-left: auto;
+  transition: transform 0.3s, rotate 0.3s;
+}
+
+.button:hover {
+  stroke: #333;
+  transform: scale(1.05);
+}
+
+.reverse {
+  rotate: 180deg;
+}
+
+.h3 {
+  margin-top: 0.5rem;
+  font-weight: 700;
+}
+
+.abstract {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.figureContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1rem;
+}
+
+.figure {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  background-color: white;
+  margin-top: 1rem;
+  border-radius: 0.75rem;
+}
+
+.image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s;
+}
+
+.link:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.05);
+}
+
+.linkContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.linkName {
+  line-height: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    border: 1px solid #4b5563;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    background-color: black;
+  }
+
+  .authors {
+    color: #e2e8f0;
+  }
+
+  .journal {
+    color: #e2e8f0;
+  }
+
+  .button {
+    stroke: white;
+  }
+
+  .button:hover {
+    stroke: #ddd;
+  }
+
+  .link {
+    border-color: lightgray;
+    background-color: black;
+  }
+
+  .link:hover {
+    background-color: #333;
+  }
+
+  .linkName {
+    color: #e2e8f0;
+  }
+
+  .abstract {
+    color: #e2e8f0;
+  }
+}

@@ -1,21 +1,32 @@
 'use client';
 
+import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState } from 'react';
+
 import profileData from '@/public/profile.json';
+import styles from '@/styles/publication.module.css';
+import { LinkData, LinkTypeComponents, PublicationData } from '@/interfaces/types';
 
 const name: string = profileData.name;
 
-export interface PublicationData {
-  id: string;
-  title: string;
-  authors: string[];
-  journal: string;
-  year: number;
-  abstract: string;
-  highlight?: string;
-  figures?: string[];
-  additional_informations?: string[];
+const AuthorList: React.FC<{ authors: string[] }> = ({ authors }) => {
+  return authors.map(author => (
+    author === name ? <strong>{author}</strong> : <>{author}</>
+  )).reduce((prev, curr) =>
+    <>{prev}, {curr}</>
+  );
+};
+
+const ExternalLink: React.FC<{ link: LinkData }> = ({ link }) => {
+  return (
+    <Link href={link.href} className={styles.link} target='_blank' rel='noopener noreferrer'>
+      <div className={styles.linkContainer}>
+        {LinkTypeComponents[link.type]}
+        <span className={`${link.type === 'Other' ? '' : 'desktop-only'} ${styles.linkName}`}>{link.name}</span>
+      </div>
+    </Link>
+  )
 };
 
 const Publication: React.FC<{ pub: PublicationData }> = ({ pub }) => {
@@ -23,58 +34,44 @@ const Publication: React.FC<{ pub: PublicationData }> = ({ pub }) => {
 
   const toggleExpanded = () => { setExpanded(prev => !prev); };
 
+  // TODO collapse/expand animation
+
   return (
-        <div
-          key={pub.id}
-          className="p-6 border rounded-lg shadow-md"
+    <div className={styles.container}>
+      <h2 className={styles.h2}>{pub.title}</h2>
+      <p className={styles.authors}><AuthorList authors={pub.authors} /></p>
+      <p className={styles.journal}>{pub.journal}, {pub.year}</p>
+      {pub.highlight && (<p className={styles.highlight}>{pub.highlight}</p>)}
+
+      <div className='flex gap-2'>
+        {pub.links?.map((link, index) => ( <ExternalLink key={index} link={new LinkData(link)} /> ))}
+
+        <button
+          onClick={ toggleExpanded }
+          className={`desktop-only ${styles.button} ${expanded ? styles.reverse : ''}`}
+          title={expanded ? 'Collapse' : 'Expand'}
+          aria-label={expanded ? 'Collapse publication' : 'Expand publication'}
         >
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">{pub.title}</h2>
-            <button
-              onClick={ toggleExpanded }
-              className="text-blue-500 hover:underline"
-            >
-              {expanded ? 'Collapse' : 'Expand'}
-            </button>
-          </div>
+          <svg width='30' height='20' xmlns='http://www.w3.org/2000/svg'>
+            <polyline points='5,5 15,15 25,5' />
+          </svg>
+        </button>
+      </div>
 
-          <p className="text-gray-600 mt-2">
-            {pub.authors.map((author, index) => (
-              <span key={index}>
-                {author === name ? <strong>{author}</strong> : author}
-                {index < pub.authors.length - 1 ? ', ' : ''}
-              </span>
+      {expanded && (
+        <div className='desktop-only'>
+          <h3 className={styles.h3}>Abstract:</h3>
+          <p className={styles.abstract}>{pub.abstract}</p>
+          <div className={styles.figureContainer}>
+            {pub.figures?.map((figure, index) => (
+              <div key={index} className={styles.figure}>
+                <Image src={figure} alt={`Figure ${index + 1}`} fill className={styles.image} />
+              </div>
             ))}
-          </p>
-
-          <p className="text-gray-600 mt-2">{pub.journal}, {pub.year}</p>
-
-          {pub.highlight && (
-            <p className="font-bold mt-2">{pub.highlight}</p>
-          )}
-
-          {expanded && (
-            <div className="mt-4">
-              <h3 className="font-bold">Abstract:</h3>
-              <p className="text-gray-700 mb-4">{pub.abstract}</p>
-
-              {pub.figures && pub.figures.length > 0 && (
-                <div className="grid grid-cols-2 gap-4">
-                  {pub.figures.map((figure, index) => (
-                    <div key={index} className="relative w-full h-64">
-                      <Image
-                        src={figure}
-                        alt={`Figure ${index + 1}`}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+          </div>
         </div>
+      )}
+    </div>
   );
 };
 

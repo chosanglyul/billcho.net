@@ -230,3 +230,26 @@
     font-size: 1rem;
   }
 }
+
+@media (orientation: landscape) and (max-height: 600px) {
+  .abstract {
+    display: none;
+  }
+}
+
+@media (max-height: 500px) {
+  .arrowTitleText {
+    font-size: 1rem;
+  }
+
+  .textContainer {
+    top: auto;
+    bottom: 25%;
+  }
+
+  @media (max-height: 450px) {
+    .textContainer {
+      bottom: 20%;
+    }
+  }
+}
