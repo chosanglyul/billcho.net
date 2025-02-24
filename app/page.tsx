@@ -3,7 +3,7 @@ import styles from '@/styles/main.module.css';
 import profileData from '@/public/profile.json';
 
 const name: string = profileData.name;
-const about: string = "Co-designing efficient deep learning algorithm and software.";
+const about: string = profileData.about;
 const abstract: string = "My primary interest lies in machine learning (ML) and the acceleration of large-scale deep learning (DL) models. I have a diverse background in ML, systems, competitive programming, and web development. Having observed the escalating growth and complexity of DL models, I've developed an interest in tackling the challenges of efficient training and serving these models. To deepen my understanding and explore these interests further, I am double majoring in math.";
 
 const Main: React.FC = () => {
