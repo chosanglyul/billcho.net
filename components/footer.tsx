@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import styles from '@/styles/footer.module.css';
 import profileData from '@/public/profile.json';
 
 const Footer: React.FC = () => {
@@ -8,15 +7,16 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.div}>
-        <span>© {currentYear} {name}. All Rights Reserved.</span>
+    <footer>
+      <span>© {currentYear} {name}. All Rights Reserved.</span>
 
-        <span className='desktop-only'>
-          Powered by {' '}
-          <Link href='https://nextjs.org' className={styles.link} target='_blank' rel='noopener noreferrer'>Next.js</Link>
-        </span>
-      </div>
+      <span className='desktop-only'>
+        {' '} Powered by {' '}
+        <Link href='https://nextjs.org'
+              className='hover:text-gray-100 dark:hover:text-gray-800'
+              target='_blank' rel='noopener noreferrer'
+        >Next.js</Link>
+      </span>
      </footer>
   );
 };
