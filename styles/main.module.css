@@ -34,76 +34,24 @@
   left: 100%;
 }
 
-.button {
-  display: flex;
-  align-items: center;
-  padding: 12px 24px;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 9999px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.button:hover {
-  background-color: #333;
-  transform: scale(1.05);
-}
-
-.button:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.button:active {
-  background-color: #555;
-  transform: scale(1.02);
-}
-
-.textContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  max-width: 56rem;
-  width: 100%;
-  padding: 20px;
-  opacity: 0;
+.container {
   animation: show-contents 1s forwards;
   animation-delay: 1s;
-  position: absolute;
-  top: 2rem;
-  bottom: 2rem;
 }
 
-.about {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.abstract {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.arrowTitleText {
-  position: absolute;
-  bottom: 0%;
-  left: 50%;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: black;
+.title {
   animation: show-arrow-contents 1s forwards;
-  opacity: 0;
   animation-delay: 2s;
-  margin-bottom: 1rem;
-  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .lRect::after {
+    border-right: 20px solid white;
+  }
+
+  .rRect::after {
+    border-left: 20px solid white;
+  }
 }
 
 @keyframes drop-bar {
@@ -129,76 +77,4 @@
 @keyframes show-arrow-contents {
   0% { transform: translateY(0.5rem) translateX(-50%); opacity: 0; }
   100% { transform: translateY(0) translateX(-50%); opacity: 1; }
-}
-
-@media (prefers-color-scheme: dark) {
-  .bar {
-    background-color: white;
-  }
-
-  .arrow {
-    background-color: white;
-  }
-
-  .lRect::after {
-    border-right: 20px solid white;
-  }
-
-  .rRect::after {
-    border-left: 20px solid white;
-  }
-
-  .button {
-    background-color: #eee;
-    color: black;
-  }
-
-  .button:hover {
-    background-color: #ccc;
-  }
-
-  .button:focus {
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
-
-  .button:active {
-    background-color: #bbb;
-  }
-
-  .abstract {
-    color: #bbb;
-  }
-
-  .arrowTitleText {
-    color: white;
-  }
-}
-
-@media (width <= 40rem) {
-  .arrowTitleText {
-    font-size: 1rem;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 600px) {
-  .abstract {
-    display: none;
-  }
-}
-
-@media (max-height: 500px) {
-  .arrowTitleText {
-    font-size: 1rem;
-  }
-
-  .textContainer {
-    top: auto;
-    bottom: 25%;
-  }
-
-  @media (max-height: 450px) {
-    .textContainer {
-      bottom: 20%;
-    }
-  }
 }
