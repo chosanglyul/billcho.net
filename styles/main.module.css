@@ -1,111 +1,66 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-}
-
-.container {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .bar {
-  height: 25%;
-  width: 5px;
-  background-color: #000;
   animation: drop-bar 1s forwards;
-  position: absolute;
-}
-
-.arrow {
-  position: absolute;
-  top: 25%;
-  opacity: 0;
-  height: 5px;
-  background-color: black;
 }
 
 .lRect {
-  right: 50%;
-  animation: expand-l-rect 1s forwards;
-  animation-delay: 1s;
+  animation: expand-l-rect 2s forwards;
 }
 
 .rRect {
-  left: 50%;
-  animation: expand-r-rect 1s forwards;
-  animation-delay: 1s;
+  animation: expand-r-rect 2s forwards;
 }
 
 .lRect::after, .rRect::after {
-  content: "";
   position: absolute;
   top: 50%;
   width: 0;
   height: 0;
+
+  content: "";
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+
+  transform: translateY(-50%);
   transition: all 0.5s ease;
 }
 
 .lRect::after {
   border-right: 20px solid black;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
   right: 100%;
-  transform: translateY(-50%);
 }
 
 .rRect::after {
   border-left: 20px solid black;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
   left: 100%;
-  transform: translateY(-50%);
-}
-
-.buttonContainer {
-  display: flex; /* Use flexbox for layout */
-  justify-content: center; /* Center buttons horizontally */
-  gap: 1rem; /* Add spacing between buttons */
-  margin-top: 1rem; /* Add some space from the top */
 }
 
 .button {
-  display: flex; /* Flexbox for centering the icon and text */
-  align-items: center; /* Vertically center items inside */
-  padding: 12px 24px; /* Adjust padding for comfortable button size */
-  background-color: #000; /* Black background */
-  color: white; /* White text */
-  border: none; /* Remove default border */
-  border-radius: 9999px; /* Fully rounded corners for a pill shape */
-  font-size: 16px; /* Adjust font size for readability */
-  font-weight: 600; /* Bold text */
-  cursor: pointer; /* Pointer cursor to indicate it's clickable */
-  transition: all 0.3s ease; /* Smooth transition for hover and focus effects */
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Hover effect */
 .button:hover {
-  background-color: #333; /* Darker background when hovered */
-  transform: scale(1.05); /* Slightly enlarge the button */
+  background-color: #333;
+  transform: scale(1.05);
 }
 
-/* Focus effect */
 .button:focus {
-  outline: none; /* Remove default outline */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add subtle shadow on focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Active state (when clicked) */
 .button:active {
-  background-color: #555; /* Even darker background on click */
-  transform: scale(1.02); /* Slightly shrink the button */
+  background-color: #555;
+  transform: scale(1.02);
 }
 
 .textContainer {
@@ -123,12 +78,6 @@
   position: absolute;
   top: 2rem;
   bottom: 2rem;
-}
-
-.title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 10px;
 }
 
 .about {
@@ -163,12 +112,12 @@
 }
 
 @keyframes expand-l-rect {
-  0% { width: 0%; opacity: 0; }
+  0%, 50% { width: 0%; opacity: 0; }
   100% { width: 40%; opacity: 1; }
 }
 
 @keyframes expand-r-rect {
-  0% { width: 0%; opacity: 0; }
+  0%, 50% { width: 0%; opacity: 0; }
   100% { width: 40%; opacity: 1; }
 }
 
@@ -225,7 +174,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (width <= 40rem) {
   .arrowTitleText {
     font-size: 1rem;
   }

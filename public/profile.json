@@ -19,7 +19,6 @@
   ],
   "publications": [
     {
-      "id": "1",
       "title": "VGA: Hardware Accelerator for Scalable Long Sequence Model Inference",
       "authors": ["SeungYul Lee", "Jihoon Hong", "Hyunseung Lee", "SangLyul Cho", "Jae W. Lee"],
       "journal": "The 57th IEEE/ACM International Symposium on Microarchitecture (MICRO)",
@@ -36,7 +35,6 @@
       ]
     },
     {
-      "id": "2",
       "title": "Any-Precision LLM: Low-Cost Deployment of Multiple, Different-Sized LLMs",
       "authors": ["Yeonhong Park", "Jake Hyun", "SangLyul Cho", "Bonggeun Sim", "Jae W. Lee"],
       "journal": "The 41st International Conference on Machine Learning (ICML)",
@@ -65,6 +63,83 @@
         "Designed and implemented the Table Lookup Merge (TLM) technique to enhance the efficiency of the quantized GEMV, achieving up to 19% faster GEMV time through optimization",
         "Developed an efficient CUDA kernel with tiling for batched and quantized GEMV"
       ]
+    }
+  ],
+  "works": [
+    {
+      "title": "Samsung Electronics",
+      "position": "Summer Software Intern, SW Development Team in Memory Business",
+      "period": "07/2022 - 08/2022",
+      "works": [
+        "Improved performance of SSD(Solid State Drive) using machine learning."
+      ]
+    },
+    {
+      "title": "ARC Lab",
+      "link": "https://arc.snu.ac.kr",
+      "position": "Undergraduate Research Intern (Advisor: Prof. Jae W. Lee)",
+      "period": "07/2023 - 08/2023, 01/2024 - 02/2024",
+      "works": [
+        "Published two papers under the supervision of Prof. Jae W. Lee."
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "name": "Semiconductor Track Scholarship",
+      "place": "4000+ USD",
+      "year": "2024 - Present"
+    },
+    {
+      "name": "Presidential Science Scholarship",
+      "place": "30000+ USD",
+      "year": "2022 - Present"
+    },
+    {
+      "name": "ICPC Asia Seoul Regional",
+      "place": "Fifth Award",
+      "info": "12th place",
+      "year": "2023"
+    },
+    {
+      "name": "Samsung Collegiate Programming Cup",
+      "link": "https://research.samsung.com/scpc",
+      "place": "Fifth Award",
+      "year": "2023"
+    },
+    {
+      "name": "Undergraduate Deep Learning Product Recognition Contest",
+      "link": "https://www.disu.or.kr/community/notice?md=v&bbsidx=7320/",
+      "place": "Excellence Prize",
+      "info": "2nd place",
+      "year": "2023"
+    },
+    {
+      "name": "ICPC Asia Seoul Regional",
+      "place": "Fifth Award",
+      "info": "13th place",
+      "year": "2022"
+    },
+    {
+      "name": "Korea Olympiad in Informatics",
+      "place": "Silver Prize",
+      "info": "8th place",
+      "year": "2021"
+    },
+    {
+      "name": "Korea Olympiad in Informatics",
+      "place": "Bronze Prize",
+      "year": "2019"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Korean",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "Advanced (TOEFL xxx)"
     }
   ]
 }

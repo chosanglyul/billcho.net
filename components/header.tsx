@@ -4,17 +4,15 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState, useEffect, useRef } from 'react';
 
-import styles from '@/styles/header.module.css';
+import Dropdown from '@/components/dropdown';
 import profileData from '@/public/profile.json';
 
 const name = profileData.name;
 
 const Header: React.FC = () => {
   const pathname = usePathname();
-  const [isActive, setIsActive] = useState(false);
-
   const buttonRef = useRef<HTMLDivElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   useEffect(() => {
     setIsActive(false);
@@ -27,11 +25,6 @@ const Header: React.FC = () => {
       } else {
         setIsActive(false);
       }
-      /* TODO else if (!dropdownRef.current?.contains(event.target as Node)) {
-        setIsActive(false);
-      }*/
-      // TODO mobile dark mode dropdown link clicked color
-      // TODO dropdown show and hide animation
     };
 
     document.addEventListener('click', handleClick);
@@ -40,41 +33,46 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  if (pathname === '/') { return null; }
+  if (pathname === '/') return null;
+
+  const linkStyle = 'hover:text-gray-600 dark:hover:text-gray-400';
 
   return (
-    <header className={styles.header}>
-      <div className={styles.div}>
-        <h1 className={styles.h1}><Link href="/">{name}</Link></h1>
+    <header>
+      <div className='max-w-4xl mx-auto p-4'>
+        <nav className='max-sm:hidden flex justify-between items-center'>
+          <h1 className='text-2xl'><Link href="/">{name}</Link></h1>
+          <div className='flex items-center gap-4'>
+            <Link href="/about" className={linkStyle}>About</Link>
+            <Link href="/publications" className={linkStyle}>Publications</Link>
+          </div>
+        </nav>
 
-        <div className='desktop-only'>
-          <nav className={styles.nav}>
-            <Link href="/about" className={styles.link}>About</Link>
-            <Link href="/publications" className={styles.link}>Publications</Link>
-          </nav>
-        </div>
-
-        <div className='mobile-only'>
-          <nav className={styles.nav}>
-            <div
-              ref={buttonRef}
-              className={`${(isActive ? styles.dropdownButtonActive : styles.dropdownButton)}`}
-            >
-              <svg width="30" height="20" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
-                <rect y="0" width="30" height="2" rx="1"/>
-                <rect y="9" width="30" height="2" rx="1"/>
-                <rect y="18" width="30" height="2" rx="1"/>
-              </svg>
+        <nav className='sm:hidden'>
+          <Dropdown
+            title={
+              <h1 className='text-2xl'><Link href="/">{name}</Link></h1>
+            }
+            button={
+              <div
+                ref={buttonRef}
+                className={`transition duration-300 cursor-pointer ${(isActive ? 'rotate-90' : '')} dark:fill-white`}
+              >
+                <svg width="30" height="20" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                  <rect y="0" width="30" height="2" rx="1"/>
+                  <rect y="9" width="30" height="2" rx="1"/>
+                  <rect y="18" width="30" height="2" rx="1"/>
+                </svg>
+              </div>
+            }
+            isActive={isActive}
+          >
+            <div className='flex flex-col gap-3 mt-3'>
+              <Link href="/about" className={linkStyle}>About</Link>
+              <Link href="/publications" className={linkStyle}>Publications</Link>
             </div>
-            <div
-              ref={dropdownRef}
-              className={`${(isActive ? styles.dropdownContentActive : styles.dropdownContent)}`}
-            >
-              <Link href="/about" className={styles.link}>About</Link>
-              <Link href="/publications" className={styles.link}>Publications</Link>
-            </div>
-          </nav>
-        </div>
+          </Dropdown>
+        </nav>
       </div>
     </header>
   );

@@ -7,55 +7,87 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Inter", Helvetica, Arial, sans-serif;
+  transition: all 0.3s;
+}
+
+main {
+  max-width: 56rem;
+
+  margin: auto;
+  padding: 6rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 h1 {
-  font-size: 1.875rem;
+  font-size: 1.875rem; 
+  line-height: 1.2rem;
   font-weight: bold;
 }
 
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.4rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  transition: inherit;
+}
+
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-  color: white;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: black;
-  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  gap: 0.25rem;
+  color: white;
   padding: 0.5rem 0;
   font-size: 0.875rem;
-  transition: background-color 0.3s, color 0.3s;
+  transition: inherit;
 }
 
-@media (max-width: 600px) {
-  .desktop-only {
-    display: none;
-  }
-}
-
-@media (min-width: 601px) {
-  .mobile-only {
-    display: none;
-  }
+nav {
+  display: flex;
+  gap: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+
+  header {
+    background-color: black;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  }
+
   footer {
     background-color: white;
     color: black;

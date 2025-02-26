@@ -31,7 +31,6 @@ export class LinkData {
 };
 
 export type PublicationData = {
-  id: string;
   title: string;
   authors: string[];
   journal: string;
