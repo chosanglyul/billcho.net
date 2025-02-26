@@ -77,6 +77,10 @@ nav {
   gap: 16px;
 }
 
+hr {
+  border-color: black;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -91,5 +95,9 @@ nav {
   footer {
     background-color: white;
     color: black;
+  }
+
+  hr {
+    border-color: white;
   }
 }

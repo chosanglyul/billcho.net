@@ -53,41 +53,45 @@ export default function Home() {
       <h1>About</h1>
 
       <div className='flex flex-col gap-6'>
+        <Image src='/chosanglyul.jpg' alt='Profile' className='sm:hidden w-36 h-48 rounded-md' width={144} height={192} />
+
         <div className='flex items-center justify-between gap-6'>
           <div className='flex flex-col gap-1 w-full'>
             <p className='flex items-center gap-2'>
-              <AiOutlineUser className='text-gray-700' />
+              <AiOutlineUser className='text-gray-700 dark:text-gray-300' />
               <span>{name}</span>
               <span className='text-gray-600 dark:text-gray-400 text-sm'>Bill Cho</span>
             </p>
             <p className='flex items-center gap-2'>
-              <IoLocationSharp className='text-gray-700' />
+              <IoLocationSharp className='text-gray-700 dark:text-gray-300' />
               <span>Seoul, South Korea</span>
             </p>
             <p className='flex items-center gap-2'>
-              <IoMailSharp className='text-gray-700' />
+              <IoMailSharp className='text-gray-700 dark:text-gray-300' />
               <a href={`mailto:${email}`} className='text-blue-500 hover:underline'>{email}</a>
             </p>
   
             {educations.map((edu, index) => (
-              <div key={index} className='flex items-center justify-between gap-2'>
-                <div className='flex items-center gap-2'>
-                  <FaGraduationCap className='text-gray-700' />
-                  <div className='text-left'>
-                    <p className='font-semibold'>{edu.degree}</p>
-                    <p className='text-gray-600 dark:text-gray-400 text-sm'>{edu.duration}</p>
+              <div key={index} className='flex items-center gap-2 w-full'>
+                <FaGraduationCap className='text-gray-700 dark:text-gray-300' />
+                <div className='flex max-sm:flex-col justify-between sm:items-center sm:gap-2 w-full'>
+                  <div className='flex items-center gap-2'>
+                    <div className='text-left'>
+                      <p className='font-semibold'>{edu.degree}</p>
+                      <p className='text-gray-600 dark:text-gray-400 text-sm'>{edu.duration}</p>
+                    </div>
                   </div>
-                </div>
-                <div className='text-right'>
-                  <p>{edu.school}</p>
-                  <p className='text-gray-600 dark:text-gray-400 text-sm'>{edu.gpa}</p>
+                  <div className='sm:text-right max-sm:text-left'>
+                    <p>{edu.school}</p>
+                    <p className='text-gray-600 dark:text-gray-400 text-sm'>{edu.gpa}</p>
+                  </div>
                 </div>
               </div>
             ))}
 
             <div className='flex items-center gap-4 mt-2 text-2xl'>
               <Link href='https://github.com/chosanglyul' target='_blank' rel='noopener noreferrer'>
-                <FaGithub className='text-gray-700 hover:text-black' />
+                <FaGithub className='text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white' />
               </Link>
               <Link href='https://www.linkedin.com/in/sanglyul-cho-69b553246' target='_blank' rel='noopener noreferrer'>
                 <FaLinkedin className='text-blue-500 hover:text-blue-700' />
@@ -96,7 +100,7 @@ export default function Home() {
                 <FaTwitter className='text-blue-400 hover:text-blue-600' />
               </Link>
               <Link href='https://scholar.google.com/citations?user=hwR7WVoAAAAJ' target='_blank' rel='noopener noreferrer'>
-                <SiGooglescholar className='text-gray-700 hover:text-black' />
+                <SiGooglescholar className='text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white' />
               </Link>
               <Link href='/cv.pdf' target='_blank' rel='noopener noreferrer'>
                 <FaFileDownload className='text-red-500 hover:text-red-700' />
@@ -104,14 +108,14 @@ export default function Home() {
             </div>
           </div>
 
-          <Image src='/chosanglyul.jpg' alt='Profile' className='w-36 h-48 rounded-md' width={144} height={192} />
+          <Image src='/chosanglyul.jpg' alt='Profile' className='max-sm:hidden w-36 h-48 rounded-md' width={144} height={192} />
         </div>
         <div>
           My primary interest lies in machine learning (ML) and the acceleration of large-scale deep learning (DL) models. I have a diverse background in ML, systems, competitive programming, and web development. Having observed the escalating growth and complexity of DL models, I've developed an interest in tackling the challenges of efficient training and serving these models. To deepen my understanding and explore these interests further, I am double majoring in math.
         </div>
       </div>
 
-      <hr className='border-black' />
+      <hr />
 
       <h2>Publications</h2>
 
@@ -119,14 +123,14 @@ export default function Home() {
         {publications.map((pub, index) => ( <Publication pub={ pub } key={ index }/> ))}
       </div>
 
-      <hr className='border-black' />
+      <hr />
 
       <h2>Work Experience</h2>
 
       <div className='flex flex-col gap-4'>
         {works.map((work, index) => (
           <div key={index} className='flex flex-col gap-2'>
-            <div className='flex gap-2 items-center'>
+            <div className='flex max-sm:flex-col gap-2 sm:items-center'>
               <h3>{work.link ? 
                 <a href={work.link} target='_blank' rel='noopener noreferrer' className='hover:underline'>{work.title}</a> :
                 <>{work.title}</>
@@ -142,14 +146,14 @@ export default function Home() {
         ))}
       </div>
 
-      <hr className='border-black' />
+      <hr />
 
       <h2>Honors and Awards</h2>
 
       <div className='flex flex-col gap-4'>
         {awards.map((award, index) => (
           <div key={index} className='flex flex-col gap-2'>
-            <div className='flex gap-2 items-center'>
+            <div className='flex max-sm:flex-col gap-2 sm:items-center'>
               <h3>{award.link ? 
                 <a href={award.link} target='_blank' rel='noopener noreferrer' className='hover:underline'>{award.name}</a> :
                 <>{award.name}</>
@@ -161,17 +165,15 @@ export default function Home() {
         ))}
       </div>
 
-      <hr className='border-black' />
+      <hr />
 
       <h2>Languages</h2>
 
-      <div className='flex gap-4'>
-        {languages.map((language) => (
-          <>{`${language.language} [${language.proficiency}]`}</>
-        )).reduce((prev, curr) =>
-          <>{prev}, {curr}</>
-        )}
-      </div>
+      <ul className='list-disc list-inside'>
+        {languages.map((language, idx) => (
+          <li key={idx}>{`${language.language} [${language.proficiency}]`}</li>
+        ))}
+      </ul>
 
     </main>
   );
