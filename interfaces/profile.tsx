@@ -77,9 +77,8 @@ export interface WorkData {
 export interface AwardData {
   readonly name: string;
   readonly place: string;
-  readonly year: string;
   readonly link?: string;
-  readonly info?: string;
+  readonly period?: string;
 };
 
 export interface LanguageData {

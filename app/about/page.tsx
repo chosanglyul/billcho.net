@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { AiOutlineUser } from 'react-icons/ai';
 import { SiGooglescholar } from 'react-icons/si';
 import { IoLocationSharp, IoMailSharp } from 'react-icons/io5';
-import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload, FaGraduationCap } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload, FaGraduationCap, FaExternalLinkAlt } from 'react-icons/fa';
 
 import profileData from '@/interfaces/profile';
 import Publication from '@/components/publication';
@@ -89,14 +89,15 @@ export default function Home() {
 
       <div className='flex flex-col gap-4'>
         {profileData.works.map((work, index) => (
-          <div key={index} className='flex flex-col gap-2'>
-            <div className='flex max-sm:flex-col gap-2 sm:items-center'>
-              <h3>{work.link ? 
-                <a href={work.link} target='_blank' rel='noopener noreferrer' className='hover:underline'>{work.title}</a> :
-                <>{work.title}</>
-              }</h3>
+          <div key={index} className='flex flex-col gap-1'>
+            <div className='flex max-sm:flex-col sm:gap-2 max-sm:gap-1 sm:items-center sm:justify-between'>
+              <div className='flex flex-row flex-wrap gap-1 items-center'>
+                <h3>{work.title}</h3>
+                {work.link && <a href={work.link} target='_blank' rel='noopener noreferrer'><FaExternalLinkAlt className='text-blue-500' /></a>}
+              </div>
               <p className='text-gray-600 dark:text-gray-400 text-sm'>{work.period}</p>
             </div>
+
             <p className='text-gray-600 dark:text-gray-400 text-sm'>{work.position}</p>
 
             <ul className='list-disc list-inside'>
@@ -112,15 +113,15 @@ export default function Home() {
 
       <div className='flex flex-col gap-4'>
         {profileData.awards.map((award, index) => (
-          <div key={index} className='flex flex-col gap-2'>
-            <div className='flex max-sm:flex-col gap-2 sm:items-center'>
-              <h3>{award.link ? 
-                <a href={award.link} target='_blank' rel='noopener noreferrer' className='hover:underline'>{award.name}</a> :
-                <>{award.name}</>
-              }</h3>
-              <p className='text-gray-600 dark:text-gray-400 text-sm'>{award.year}</p>
+          <div key={index} className='flex flex-col gap-1'>
+            <div className='flex max-sm:flex-col sm:gap-2 max-sm:gap-1 sm:items-center sm:justify-between'>
+              <div className='flex gap-1 items-center'>
+                <h3>{award.name}</h3>
+                {award.link ? <a href={award.link} target='_blank' rel='noopener noreferrer'><FaExternalLinkAlt className='text-blue-500' /></a> : <></>}
+              </div>
+              {award.period ? <span className='text-gray-600 dark:text-gray-400 text-sm'>{award.period}</span> : <></>}
             </div>
-            <p>{award.place}{award.info ? `, ${award.info}` : ''}</p>
+            <p>{award.place}</p>
           </div>
         ))}
       </div>

@@ -89,48 +89,30 @@
     {
       "name": "Semiconductor Track Scholarship",
       "place": "4000+ USD",
-      "year": "2024 - Present"
+      "period": "2024 - Present"
     },
     {
       "name": "Presidential Science Scholarship",
       "place": "30000+ USD",
-      "year": "2022 - Present"
+      "period": "2022 - Present"
     },
     {
-      "name": "ICPC Asia Seoul Regional",
-      "place": "Fifth Award",
-      "info": "12th place",
-      "year": "2023"
+      "name": "ICPC Asia Seoul Regional 2023",
+      "place": "Fifth Award, 12th place"
     },
     {
-      "name": "Samsung Collegiate Programming Cup",
+      "name": "Samsung Collegiate Programming Cup 2023",
       "link": "https://research.samsung.com/scpc",
-      "place": "Fifth Award",
-      "year": "2023"
+      "place": "Fifth Award"
     },
     {
-      "name": "Undergraduate Deep Learning Product Recognition Contest",
+      "name": "Undergraduate Deep Learning Product Recognition Contest 2023",
       "link": "https://www.disu.or.kr/community/notice?md=v&bbsidx=7320/",
-      "place": "Excellence Prize",
-      "info": "2nd place",
-      "year": "2023"
+      "place": "Excellence Prize, 2nd place"
     },
     {
-      "name": "ICPC Asia Seoul Regional",
-      "place": "Fifth Award",
-      "info": "13th place",
-      "year": "2022"
-    },
-    {
-      "name": "Korea Olympiad in Informatics",
-      "place": "Silver Prize",
-      "info": "8th place",
-      "year": "2021"
-    },
-    {
-      "name": "Korea Olympiad in Informatics",
-      "place": "Bronze Prize",
-      "year": "2019"
+      "name": "Korea Olympiad in Informatics 2021",
+      "place": "Silver Prize, 8th place"
     }
   ],
   "languages": [
