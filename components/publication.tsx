@@ -2,18 +2,22 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, JSX } from 'react';
+import { FaGithub, FaFilePdf, FaExternalLinkAlt } from 'react-icons/fa';
 
 import Dropdown from '@/components/dropdown';
-import profileData from '@/public/profile.json';
 import styles from '@/styles/publication.module.css';
-import { LinkData, LinkTypeComponents, PublicationData } from '@/interfaces/types';
+import profileData, { LinkType, LinkData, PublicationData } from '@/interfaces/profile';
 
-const name: string = profileData.name;
+const LinkTypeComponents: Record<LinkType, JSX.Element> = {
+  GitHub: <FaGithub className='text-black-500 dark:text-white-500' />,
+  Paper: <FaFilePdf className='text-red-500' />,
+  Other: <FaExternalLinkAlt className='text-blue-500' />,
+};
 
-const AuthorList: React.FC<{ authors: string[] }> = ({ authors }) => {
-  return authors.map(author => (
-    author === name ? <strong>{author}</strong> : <>{author}</>
+const AuthorList: React.FC<{ authors: readonly string[] }> = ({ authors }) => {
+  return authors.map((author, index) => (
+    author === profileData.name ? <strong key={index}>{author}</strong> : <>{author}</>
   )).reduce((prev, curr) =>
     <>{prev}, {curr}</>
   );
@@ -44,7 +48,7 @@ const Publication: React.FC<{ pub: PublicationData }> = ({ pub }) => {
       <Dropdown
         title={
           <div className='flex gap-2'>
-            {pub.links?.map((link, index) => ( <ExternalLink key={index} link={new LinkData(link)} /> ))}
+            {pub.links?.map((link, index) => ( <ExternalLink key={index} link={link} /> ))}
           </div>
         }
         button={

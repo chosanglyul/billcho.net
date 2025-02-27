@@ -24,7 +24,7 @@ const Dropdown: React.FC<{
         setHeight(0);
       }
     }
-  }, [isActive]);
+  }, [isActive, height]);
 
   return (
     <div className='flex flex-col w-full relative'>

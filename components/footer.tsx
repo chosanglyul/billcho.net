@@ -1,14 +1,13 @@
 import Link from 'next/link';
 
-import profileData from '@/public/profile.json';
+import profileData from '@/interfaces/profile';
 
 const Footer: React.FC = () => {
-  const name = profileData.name;
   const currentYear = new Date().getFullYear();
 
   return (
     <footer>
-      <span>© {currentYear} {name}. All Rights Reserved.</span>
+      <span>© {currentYear} {profileData.name}. All Rights Reserved.</span>
 
       <span className='max-sm:hidden'>
         {' '} Powered by {' '}

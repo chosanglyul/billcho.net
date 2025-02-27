@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google';
 
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import profileData from '@/public/profile.json';
+import profileData from '@/interfaces/profile';
 
 export const metadata: Metadata = {
   title: profileData.name,

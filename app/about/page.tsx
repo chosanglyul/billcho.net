@@ -6,46 +6,8 @@ import { SiGooglescholar } from 'react-icons/si';
 import { IoLocationSharp, IoMailSharp } from 'react-icons/io5';
 import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload, FaGraduationCap } from 'react-icons/fa';
 
-import profileData from '@/public/profile.json';
+import profileData from '@/interfaces/profile';
 import Publication from '@/components/publication';
-import { PublicationData } from '@/interfaces/types';
-
-interface Education {
-  degree: string;
-  school: string;
-  duration: string;
-  gpa: string;
-};
-
-interface Work {
-  title: string;
-  position: string;
-  period: string;
-  link?: string;
-  works?: string[];
-};
-
-interface Award {
-  name: string;
-  place: string;
-  year: string;
-  link?: string;
-  info?: string;
-};
-
-interface Language {
-  language: string;
-  proficiency: string;
-};
-
-const name: string = profileData.name;
-const email: string = profileData.email;
-
-const awards: Award[] = profileData.awards;
-const works: Work[] = profileData.works.reverse();
-const languages: Language[] = profileData.languages;
-const educations: Education[] = profileData.education.reverse();
-const publications: PublicationData[] = profileData.publications.reverse();
 
 export default function Home() {
   return (
@@ -59,7 +21,7 @@ export default function Home() {
           <div className='flex flex-col gap-1 w-full'>
             <p className='flex items-center gap-2'>
               <AiOutlineUser className='text-gray-700 dark:text-gray-300' />
-              <span>{name}</span>
+              <span>{profileData.name}</span>
               <span className='text-gray-600 dark:text-gray-400 text-sm'>Bill Cho</span>
             </p>
             <p className='flex items-center gap-2'>
@@ -68,10 +30,10 @@ export default function Home() {
             </p>
             <p className='flex items-center gap-2'>
               <IoMailSharp className='text-gray-700 dark:text-gray-300' />
-              <a href={`mailto:${email}`} className='text-blue-500 hover:underline'>{email}</a>
+              <a href={`mailto:${profileData.email}`} className='text-blue-500 hover:underline'>{profileData.email}</a>
             </p>
   
-            {educations.map((edu, index) => (
+            {profileData.educations.map((edu, index) => (
               <div key={index} className='flex items-center gap-2 w-full'>
                 <FaGraduationCap className='text-gray-700 dark:text-gray-300' />
                 <div className='flex max-sm:flex-col justify-between sm:items-center sm:gap-2 w-full'>
@@ -110,9 +72,7 @@ export default function Home() {
 
           <Image src='/chosanglyul.jpg' alt='Profile' className='max-sm:hidden w-36 h-48 rounded-md' width={144} height={192} />
         </div>
-        <div>
-          My primary interest lies in machine learning (ML) and the acceleration of large-scale deep learning (DL) models. I have a diverse background in ML, systems, competitive programming, and web development. Having observed the escalating growth and complexity of DL models, I've developed an interest in tackling the challenges of efficient training and serving these models. To deepen my understanding and explore these interests further, I am double majoring in math.
-        </div>
+        <div>{profileData.abstract}</div>
       </div>
 
       <hr />
@@ -120,7 +80,7 @@ export default function Home() {
       <h2>Publications</h2>
 
       <div className='flex flex-col gap-4'>
-        {publications.map((pub, index) => ( <Publication pub={ pub } key={ index }/> ))}
+        {profileData.publications.map((pub, index) => ( <Publication pub={ pub } key={ index }/> ))}
       </div>
 
       <hr />
@@ -128,7 +88,7 @@ export default function Home() {
       <h2>Work Experience</h2>
 
       <div className='flex flex-col gap-4'>
-        {works.map((work, index) => (
+        {profileData.works.map((work, index) => (
           <div key={index} className='flex flex-col gap-2'>
             <div className='flex max-sm:flex-col gap-2 sm:items-center'>
               <h3>{work.link ? 
@@ -151,7 +111,7 @@ export default function Home() {
       <h2>Honors and Awards</h2>
 
       <div className='flex flex-col gap-4'>
-        {awards.map((award, index) => (
+        {profileData.awards.map((award, index) => (
           <div key={index} className='flex flex-col gap-2'>
             <div className='flex max-sm:flex-col gap-2 sm:items-center'>
               <h3>{award.link ? 
@@ -170,7 +130,7 @@ export default function Home() {
       <h2>Languages</h2>
 
       <ul className='list-disc list-inside'>
-        {languages.map((language, idx) => (
+        {profileData.languages.map((language, idx) => (
           <li key={idx}>{`${language.language} [${language.proficiency}]`}</li>
         ))}
       </ul>

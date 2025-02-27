@@ -2,7 +2,8 @@
   "name": "SangLyul Cho",
   "email": "chosanglyul@gmail.com",
   "about": "Co-designing efficient deep learning algorithm and software.",
-  "education": [
+  "abstract": "My primary interest lies in machine learning (ML) and the acceleration of large-scale deep learning (DL) models. I have a diverse background in ML, systems, competitive programming, and web development. Having observed the escalating growth and complexity of DL models, I've developed an interest in tackling the challenges of efficient training and serving these models. To deepen my understanding and explore these interests further, I am double majoring in math.",
+  "educations": [
     {
       "degree": "High School Diploma",
       "gpa": "TBD",

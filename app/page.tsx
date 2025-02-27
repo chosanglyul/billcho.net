@@ -1,10 +1,7 @@
 import Link from 'next/link';
-import styles from '@/styles/main.module.css';
-import profileData from '@/public/profile.json';
 
-const name: string = profileData.name;
-const about: string = profileData.about;
-const abstract: string = "My primary interest lies in machine learning (ML) and the acceleration of large-scale deep learning (DL) models. I have a diverse background in ML, systems, competitive programming, and web development. Having observed the escalating growth and complexity of DL models, I've developed an interest in tackling the challenges of efficient training and serving these models. To deepen my understanding and explore these interests further, I am double majoring in math.";
+import styles from '@/styles/main.module.css';
+import profileData from '@/interfaces/profile';
 
 const LinkButton: React.FC<{ href: string, title: string }> = ({ href, title }) => {
   return (
@@ -33,9 +30,9 @@ const Main: React.FC = () => {
       </div>
 
       <div className={`flex flex-col justify-center items-center text-center max-w-4xl w-full p-5 opacity-0 absolute top-8 bottom-8 gap-3 ${styles.container}`}>
-        <h1 className='text-4xl'>{name}</h1>
-        <p className='font-semibold'>{about}</p>
-        <p className='max-sm:hidden text-gray-600 dark:text-gray-400'>{abstract}</p>
+        <h1 className='text-4xl'>{profileData.name}</h1>
+        <p className='font-semibold'>{profileData.about}</p>
+        <p className='max-sm:hidden text-gray-600 dark:text-gray-400'>{profileData.abstract}</p>
         <div className='flex justify-center gap-4 mt-2'>
           <LinkButton href='/about' title='About' />
           <LinkButton href='/publications' title='Publications' />

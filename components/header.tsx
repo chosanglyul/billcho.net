@@ -5,9 +5,7 @@ import { usePathname } from 'next/navigation';
 import React, { useState, useEffect, useRef } from 'react';
 
 import Dropdown from '@/components/dropdown';
-import profileData from '@/public/profile.json';
-
-const name = profileData.name;
+import profileData from '@/interfaces/profile';
 
 const Header: React.FC = () => {
   const pathname = usePathname();
@@ -41,7 +39,7 @@ const Header: React.FC = () => {
     <header>
       <div className='max-w-4xl mx-auto p-4'>
         <nav className='max-sm:hidden flex justify-between items-center'>
-          <h1 className='text-2xl'><Link href="/">{name}</Link></h1>
+          <h1 className='text-2xl'><Link href="/">{profileData.name}</Link></h1>
           <div className='flex items-center gap-4'>
             <Link href="/about" className={linkStyle}>About</Link>
             <Link href="/publications" className={linkStyle}>Publications</Link>
@@ -51,7 +49,7 @@ const Header: React.FC = () => {
         <nav className='sm:hidden'>
           <Dropdown
             title={
-              <h1 className='text-2xl'><Link href="/">{name}</Link></h1>
+              <h1 className='text-2xl'><Link href="/">{profileData.name}</Link></h1>
             }
             button={
               <div
