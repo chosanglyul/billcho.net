@@ -1,18 +1,14 @@
 import type { MetadataRoute } from 'next';
 
+const modified: Date = new Date();
+const base: string = 'https://billcho.net';
+const sites: string[] = ['', '/about', '/publications'];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: 'https://billcho.net',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://billcho.net/about',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://billcho.net/publications',
-      lastModified: new Date(),
-    },
-  ]
+  return sites.map(site => {
+    return {
+      url: base + site,
+      lastModified: modified,
+    }
+  });
 }
