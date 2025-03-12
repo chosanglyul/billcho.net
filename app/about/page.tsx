@@ -7,7 +7,8 @@ import { IoLocationSharp, IoMailSharp } from 'react-icons/io5';
 import { FaGithub, FaLinkedin, FaTwitter, FaFileDownload, FaGraduationCap, FaExternalLinkAlt } from 'react-icons/fa';
 
 import profileData from '@/interfaces/profile';
-import Publication from '@/components/publication';
+import profileImage from '@/public/chosanglyul.jpg';
+import { AuthorList, ExternalLink } from '@/components/publication';
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       <h1>About</h1>
 
       <div className='flex flex-col gap-6'>
-        <Image src='/chosanglyul.jpg' alt='Profile' className='sm:hidden w-36 h-48 rounded-md' width={144} height={192} />
+        <Image src={profileImage} alt='Profile' className='sm:hidden w-36 h-48 rounded-md' />
 
         <div className='flex items-center justify-between gap-6'>
           <div className='flex flex-col gap-1 w-full'>
@@ -30,22 +31,20 @@ export default function Home() {
             </p>
             <p className='flex items-center gap-2'>
               <IoMailSharp className='text-gray-700 dark:text-gray-300' />
-              <a href={`mailto:${profileData.email}`} className='text-blue-500 hover:underline'>{profileData.email}</a>
+              <Link href={`mailto:${profileData.email}`} className='text-blue-500 hover:underline'>{profileData.email}</Link>
             </p>
   
             {profileData.educations.map((edu, index) => (
               <div key={index} className='flex items-center gap-2 w-full'>
                 <FaGraduationCap className='text-gray-700 dark:text-gray-300' />
-                <div className='flex max-sm:flex-col justify-between sm:items-center sm:gap-2 w-full'>
-                  <div className='flex items-center gap-2'>
-                    <div className='text-left'>
-                      <p className='font-semibold'>{edu.degree}</p>
-                      <p className='text-gray-600 dark:text-gray-400 text-sm'>{edu.duration}</p>
-                    </div>
+                <div className='flex flex-col w-full'>
+                  <div className='flex max-sm:flex-col sm:justify-between'>
+                    <p className='text-left font-semibold'>{edu.degree}</p>
+                    <p className='sm:text-right max-sm:text-left'>{edu.school}</p>
                   </div>
-                  <div className='sm:text-right max-sm:text-left'>
-                    <p>{edu.school}</p>
-                    <p className='text-gray-600 dark:text-gray-400 text-sm'>{edu.gpa}</p>
+                  <div className='flex max-sm:flex-col sm:justify-between'>
+                    <p className='text-left text-gray-600 dark:text-gray-400 text-sm'>{edu.duration}</p>
+                    <p className='sm:text-right max-sm:text-left text-gray-600 dark:text-gray-400 text-sm'>{edu.gpa}</p>
                   </div>
                 </div>
               </div>
@@ -70,7 +69,7 @@ export default function Home() {
             </div>
           </div>
 
-          <Image src='/chosanglyul.jpg' alt='Profile' className='max-sm:hidden w-36 h-48 rounded-md' width={144} height={192} />
+          <Image src={profileImage} alt='Profile' className='max-sm:hidden w-36 h-48 rounded-md' />
         </div>
         <div>{profileData.abstract}</div>
       </div>
@@ -80,7 +79,18 @@ export default function Home() {
       <h2>Publications</h2>
 
       <div className='flex flex-col gap-4'>
-        {profileData.publications.map((pub, index) => ( <Publication pub={ pub } key={ index }/> ))}
+        {profileData.publications.map((pub, index) => (
+          <div key={index} className='flex flex-col gap-1'>
+            <h3>{pub.title}</h3>
+            <p className='text-gray-600 dark:text-gray-400 text-sm'><AuthorList authors={pub.authors} /></p>
+            <p className='text-gray-600 dark:text-gray-400 text-sm'>{pub.journal}, {pub.year}</p>
+            {pub.highlight && (<p className='text-rose-500 font-semibold'>{pub.highlight}</p>)}
+
+            <div className='flex gap-2 text-sm my-1'>
+              {pub.links?.map((link, index) => ( <ExternalLink key={index} link={link} /> ))}
+            </div>
+          </div>
+        ))}
       </div>
 
       <hr />
@@ -90,15 +100,16 @@ export default function Home() {
       <div className='flex flex-col gap-4'>
         {profileData.works.map((work, index) => (
           <div key={index} className='flex flex-col gap-1'>
-            <div className='flex max-sm:flex-col sm:gap-2 max-sm:gap-1 sm:items-center sm:justify-between'>
-              <div className='flex flex-row flex-wrap gap-1 items-center'>
-                <h3>{work.title}</h3>
-                {work.link && <a href={work.link} target='_blank' rel='noopener noreferrer'><FaExternalLinkAlt className='text-blue-500' /></a>}
+            <div className='flex flex-col gap-1 w-full'>
+              <div className='flex max-sm:flex-col sm:items-center sm:justify-between max-sm:gap-1'>
+                <div className='flex gap-1 items-center'>
+                  <h3>{work.title}</h3>
+                  {work.link && <a href={work.link} target='_blank' rel='noopener noreferrer'><FaExternalLinkAlt className='text-blue-500' /></a>}
+                </div>
+                <p className='sm:text-right max-sm:text-left text-gray-600 dark:text-gray-400 text-sm'>{work.period}</p>
               </div>
-              <p className='text-gray-600 dark:text-gray-400 text-sm'>{work.period}</p>
+              <p className='text-gray-600 dark:text-gray-400 text-sm'>{work.position}</p>
             </div>
-
-            <p className='text-gray-600 dark:text-gray-400 text-sm'>{work.position}</p>
 
             <ul className='list-disc list-inside'>
               {work.works?.map((item, idx) => (<li key={idx}>{item}</li>))}
@@ -113,15 +124,15 @@ export default function Home() {
 
       <div className='flex flex-col gap-4'>
         {profileData.awards.map((award, index) => (
-          <div key={index} className='flex flex-col gap-1'>
-            <div className='flex max-sm:flex-col sm:gap-2 max-sm:gap-1 sm:items-center sm:justify-between'>
+          <div key={index} className='flex max-sm:flex-col sm:items-center sm:justify-between max-sm:gap-1'>
+            <div className='flex flex-col gap-1'>
               <div className='flex gap-1 items-center'>
                 <h3>{award.name}</h3>
                 {award.link ? <a href={award.link} target='_blank' rel='noopener noreferrer'><FaExternalLinkAlt className='text-blue-500' /></a> : <></>}
               </div>
-              {award.period ? <span className='text-gray-600 dark:text-gray-400 text-sm'>{award.period}</span> : <></>}
+              <p>{award.place}</p>
             </div>
-            <p>{award.place}</p>
+            {award.period ? <span className='text-gray-600 dark:text-gray-400 text-sm'>{award.period}</span> : <></>}
           </div>
         ))}
       </div>

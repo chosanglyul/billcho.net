@@ -15,7 +15,7 @@ const LinkTypeComponents: Record<LinkType, JSX.Element> = {
   Other: <FaExternalLinkAlt className='text-blue-500' />,
 };
 
-const AuthorList: React.FC<{ authors: readonly string[] }> = ({ authors }) => {
+export const AuthorList: React.FC<{ authors: readonly string[] }> = ({ authors }) => {
   return authors.map((author, index) => (
     author === profileData.name ? <strong key={index}>{author}</strong> : <>{author}</>
   )).reduce((prev, curr) =>
@@ -23,7 +23,7 @@ const AuthorList: React.FC<{ authors: readonly string[] }> = ({ authors }) => {
   );
 };
 
-const ExternalLink: React.FC<{ link: LinkData }> = ({ link }) => {
+export const ExternalLink: React.FC<{ link: LinkData }> = ({ link }) => {
   return (
     <Link href={link.href} className={styles.link} target='_blank' rel='noopener noreferrer'>
       <div className={styles.linkContainer}>
@@ -54,7 +54,7 @@ const Publication: React.FC<{ pub: PublicationData }> = ({ pub }) => {
         button={
           <button
             onClick={ toggleExpanded }
-            className={`max-sm:hidden ${styles.button} hover:scale-105 ${expanded ? 'rotate-180' : ''}`}
+            className={`${styles.button} hover:scale-105 ${expanded ? 'rotate-180' : ''}`}
             title={expanded ? 'Collapse' : 'Expand'}
             aria-label={expanded ? 'Collapse publication' : 'Expand publication'}
           >
@@ -65,16 +65,14 @@ const Publication: React.FC<{ pub: PublicationData }> = ({ pub }) => {
         }
         isActive={expanded}
       >
-        <div className='max-sm:hidden'>
-          <h3 className='mt-4'>Abstract:</h3>
-          <p className='text-sm text-gray-600 dark:text-gray-400'>{pub.abstract}</p>
-          <div className='grid grid-cols-2 gap-x-4'>
-            {pub.figures?.map((figure, index) => (
-              <div key={index} className={styles.figure}>
-                <Image src={figure} alt={`Figure ${index + 1}`} fill className='object-contain' />
-              </div>
-            ))}
-          </div>
+        <h3 className='mt-4'>Abstract:</h3>
+        <p className='text-gray-600 dark:text-gray-400 text-sm'>{pub.abstract}</p>
+        <div className='grid grid-cols-2 gap-x-4'>
+          {pub.figures?.map((figure, index) => (
+            <div key={index} className={styles.figure}>
+              <Image src={figure} alt={`Figure ${index + 1}`} fill className='object-contain' />
+            </div>
+          ))}
         </div>
       </Dropdown>
     </div>
