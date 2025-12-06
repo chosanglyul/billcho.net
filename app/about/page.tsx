@@ -139,6 +139,7 @@ export default function Home() {
 
       <hr />
 
+{/*
       <h2>Languages</h2>
 
       <ul className='list-disc list-inside'>
@@ -146,6 +147,7 @@ export default function Home() {
           <li key={idx}>{`${language.language} [${language.proficiency}]`}</li>
         ))}
       </ul>
+*/}
 
     </main>
   );
