@@ -3,11 +3,9 @@ import Link from 'next/link';
 import profileData from '@/interfaces/profile';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer>
-      <span>© {currentYear} {profileData.name}. All Rights Reserved.</span>
+      <span>© 2025-2026 {profileData.name}. All Rights Reserved.</span>
 
       <span className='max-sm:hidden'>
         {' '} Powered by {' '}
