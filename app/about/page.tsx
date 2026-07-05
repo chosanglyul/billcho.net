@@ -29,26 +29,38 @@ export default function Home() {
               <IoLocationSharp className='text-gray-700 dark:text-gray-300' />
               <span>Seoul, South Korea</span>
             </p>
-            <p className='flex items-center gap-2'>
+            <p className='flex items-center gap-2 flex-wrap'>
               <IoMailSharp className='text-gray-700 dark:text-gray-300' />
-              <Link href={`mailto:${profileData.email}`} className='text-blue-500 hover:underline'>{profileData.email}</Link>
+              <span className='flex flex-wrap items-center gap-1'>
+                {profileData.emails.map((email, index) => (
+                  <span key={email} className='flex items-center gap-1'>
+                    {index > 0 && <span className='text-gray-600 dark:text-gray-400'>/</span>}
+                    <Link href={`mailto:${email}`} className='text-blue-500 hover:underline'>{email}</Link>
+                  </span>
+                ))}
+              </span>
             </p>
-  
-            {profileData.educations.map((edu, index) => (
-              <div key={index} className='flex items-center gap-2 w-full'>
-                <FaGraduationCap className='text-gray-700 dark:text-gray-300' />
-                <div className='flex flex-col w-full'>
-                  <div className='flex max-sm:flex-col sm:justify-between'>
-                    <p className='text-left font-semibold'>{edu.degree}</p>
-                    <p className='sm:text-right max-sm:text-left'>{edu.school}</p>
-                  </div>
-                  <div className='flex max-sm:flex-col sm:justify-between'>
-                    <p className='text-left text-gray-600 dark:text-gray-400 text-sm'>{edu.duration}</p>
-                    <p className='sm:text-right max-sm:text-left text-gray-600 dark:text-gray-400 text-sm'>{edu.gpa}</p>
+
+            <div className='flex flex-col gap-4 mt-2'>
+              {profileData.educations.map((edu, index) => (
+                <div key={index} className='flex items-start gap-2 w-full'>
+                  <FaGraduationCap className='mt-1 text-gray-700 dark:text-gray-300' />
+                  <div className='flex flex-col w-full'>
+                    <div className='flex max-sm:flex-col sm:justify-between'>
+                      <p className='text-left font-semibold'>{edu.degree}</p>
+                      <p className='sm:text-right max-sm:text-left'>{edu.school}</p>
+                    </div>
+                    <div className='flex max-sm:flex-col sm:justify-between'>
+                      <p className='text-left text-gray-600 dark:text-gray-400 text-sm'>{edu.duration}</p>
+                      <p className='sm:text-right max-sm:text-left text-gray-600 dark:text-gray-400 text-sm'>{edu.gpa}</p>
+                    </div>
+                    {edu.notes?.map((note, idx) => (
+                      <p key={idx} className='text-gray-600 dark:text-gray-400 text-sm'>{note}</p>
+                    ))}
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
 
             <div className='flex items-center gap-4 mt-2 text-2xl'>
               <Link href='https://github.com/chosanglyul' target='_blank' rel='noopener noreferrer'>
@@ -95,7 +107,7 @@ export default function Home() {
 
       <hr />
 
-      <h2>Work Experience</h2>
+      <h2>Work and Research Experience</h2>
 
       <div className='flex flex-col gap-4'>
         {profileData.works.map((work, index) => (
@@ -108,7 +120,10 @@ export default function Home() {
                 </div>
                 <p className='sm:text-right max-sm:text-left text-gray-600 dark:text-gray-400 text-sm'>{work.period}</p>
               </div>
-              <p className='text-gray-600 dark:text-gray-400 text-sm'>{work.position}</p>
+              <div className='flex max-sm:flex-col sm:justify-between'>
+                <p className='text-gray-600 dark:text-gray-400 text-sm'>{work.position}</p>
+                {work.location && <p className='sm:text-right max-sm:text-left text-gray-600 dark:text-gray-400 text-sm'>{work.location}</p>}
+              </div>
             </div>
 
             <ul className='list-disc list-inside'>

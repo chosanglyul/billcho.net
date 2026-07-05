@@ -1,6 +1,7 @@
 {
   "name": "SangLyul Cho",
   "email": "chosanglyul@gmail.com",
+  "emails": ["chosanglyul@gmail.com", "chosanglyul@snu.ac.kr"],
   "about": "Co-designing efficient deep learning algorithm and software.",
   "abstract": "My primary interest lies in machine learning (ML) and the acceleration of large-scale deep learning (DL) models. I have a diverse background in ML, systems, competitive programming, and web development. Having observed the escalating growth and complexity of DL models, I've developed an interest in tackling the challenges of efficient training and serving these models. To deepen my understanding and explore these interests further, I am double majoring in math.",
   "educations": [
@@ -9,13 +10,18 @@
       "gpa": "Final GPA: 4.24/4.3",
       "school": "Seoul Science High School",
       "duration": "Mar 2019 - Feb 2022",
-      "thesis": "Senior project: Improvement of backpropagation time and stability of RNN using Tree-RNN"
+      "notes": [
+        "Senior project: Improvement of backpropagation time and stability of RNN using Tree-RNN"
+      ]
     },
     {
       "degree": "B.S. Student in CSE and Math",
       "gpa": "Current GPA: 4.27/4.3, CSE: 4.27/4.3, Math: 4.30/4.3",
       "school": "Seoul National University",
-      "duration": "Mar 2022 - Present"
+      "duration": "Mar 2022 - Present",
+      "notes": [
+        "Leave of absence for mandatory military service (Nov 2024 - May 2026)"
+      ]
     }
   ],
   "publications": [
@@ -69,50 +75,65 @@
   "works": [
     {
       "title": "Samsung Electronics",
-      "position": "Summer Software Intern, SW Development Team in Memory Business",
-      "period": "07/2022 - 08/2022",
+      "position": "Summer Intern, SW Development Team in Memory Business",
+      "period": "Jul 2022 - Aug 2022",
+      "location": "Hwaseong, Korea",
       "works": [
-        "Improved performance of SSD(Solid State Drive) using machine learning."
+        "Improved performance of SSD(Solid State Drive) using machine learning"
       ]
     },
     {
       "title": "ARC Lab",
       "link": "https://arc.snu.ac.kr",
       "position": "Undergraduate Research Intern",
-      "period": "07/2023 - 08/2023, 01/2024 - 02/2024",
+      "period": "Jul - Aug 2023 / Jan - Feb 2024",
+      "location": "Seoul, Korea",
       "works": [
         "Published two papers under the supervision of Prof. Jae W. Lee."
+      ]
+    },
+    {
+      "title": "Republic of Korea Army",
+      "position": "Sergeant",
+      "period": "Nov 2024 - May 2026",
+      "location": "Seongnam, Korea",
+      "works": [
+        "Completed compulsory military service in South Korea."
       ]
     }
   ],
   "awards": [
     {
       "name": "Semiconductor Track Scholarship",
-      "place": "4000+ USD",
+      "place": "6M+ KRW",
       "period": "2024 - Present"
     },
     {
       "name": "Presidential Science Scholarship",
-      "place": "30000+ USD",
+      "place": "44M KRW",
       "period": "2022 - Present"
     },
     {
-      "name": "ICPC Asia Seoul Regional 2023",
-      "place": "Fifth Award, 12th place"
+      "name": "ICPC Seoul Regional",
+      "place": "Fifth Award, 12th place",
+      "period": "2023"
     },
     {
-      "name": "Samsung Collegiate Programming Cup 2023",
+      "name": "SCPC",
       "link": "https://research.samsung.com/scpc",
-      "place": "Fifth Award"
+      "place": "Fifth Award",
+      "period": "2023"
     },
     {
-      "name": "Undergraduate Deep Learning Product Recognition Contest 2023",
+      "name": "Undergraduate Deep Learning Product Recognition Contest",
       "link": "https://www.disu.or.kr/community/notice?md=v&bbsidx=7320/",
-      "place": "Excellence Prize, 2nd place"
+      "place": "Excellence Prize, 2nd place",
+      "period": "2023"
     },
     {
-      "name": "Korea Olympiad in Informatics 2021",
-      "place": "Silver Prize, 8th place"
+      "name": "Korea Olympiad in Informatics",
+      "place": "Finals Silver Prize, 8th place",
+      "period": "2021"
     }
   ],
   "languages": [

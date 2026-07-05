@@ -5,6 +5,7 @@ export interface EducationData {
   readonly school: string;
   readonly duration: string;
   readonly gpa: string;
+  readonly notes?: readonly string[];
 };
 
 export interface LinkRawData {
@@ -70,6 +71,7 @@ export interface WorkData {
   readonly title: string;
   readonly position: string;
   readonly period: string;
+  readonly location?: string;
   readonly link?: string;
   readonly works?: readonly string[];
 };
@@ -89,6 +91,7 @@ export interface LanguageData {
 export interface ProfileRawData {
   readonly name: string;
   readonly email: string;
+  readonly emails?: readonly string[];
   readonly about: string;
   readonly abstract: string;
   readonly educations: readonly EducationData[];
@@ -101,6 +104,7 @@ export interface ProfileRawData {
 export class ProfileData {
   readonly name: string;
   readonly email: string;
+  readonly emails: readonly string[];
   readonly about: string;
   readonly abstract: string;
   readonly educations: readonly EducationData[];
@@ -112,6 +116,7 @@ export class ProfileData {
   constructor(data: ProfileRawData) {
     this.name = data.name;
     this.email = data.email;
+    this.emails = data.emails ?? [data.email];
     this.about = data.about;
     this.abstract = data.abstract;
     this.educations = [...data.educations].reverse();
